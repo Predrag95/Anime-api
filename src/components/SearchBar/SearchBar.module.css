@@ -1,0 +1,42 @@
+.search_bar_container {
+ text-align: center;
+ margin: 1rem 0 2rem 0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: .6rem;
+}
+
+.input {
+ height: 2rem;
+ width: 15rem;
+ border-radius: .6rem;
+ border: .1rem solid #acacac;
+ color: #656565;
+ font-size: 1.2rem;
+ font-weight: 300;
+ transition: .2s;
+ padding: .3rem;
+}
+
+.input::placeholder {
+ color: #c7c7c7;
+}
+
+.input:focus {
+ outline: none; 
+ color: #8b8989;
+ background-color: transparent;
+ box-shadow: .1rem .1rem .3rem #acacac;
+}
+
+.anime_logo_container {
+ width: 5rem;
+}
+
+.search_button {
+ padding: .3rem;
+ border-radius: .8rem;
+ border: none;
+ margin-left: .5rem;
+}
