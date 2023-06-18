@@ -6,7 +6,7 @@ const Content = ({ animeData }) => {
   const renderSearchedAnimes = () => {
     return animeData?.map((anime, id) => {
       const imgUrl = anime?.images?.jpg?.image_url;
-      const determineBgColor = () => (anime?.score > 7) ? 'green' : 'yellow';
+      const determineBgColor = () => (anime?.score > 7) ? '#31c050' : '#f5b70e';
       const nullScore = () => anime?.score === null ? 'No score' : anime?.score;
 
       return (
@@ -16,9 +16,9 @@ const Content = ({ animeData }) => {
         >
           <img src={imgUrl} alt='animeImage' className={classes.anime_img} />
           <div className={classes.anime_desc_container}>
-            <div>{`Name: ${anime?.title_english}`}</div>
-            <div style={{ background: determineBgColor() }}>{`Score: ${nullScore()}`}</div>
+            <div className={classes.anime_desc}>{`Name: ${anime?.title_english}`}</div>
           </div>
+          <div className={classes.anime_score} style={{ background: determineBgColor() }}>{`Score: ${nullScore()}`}</div>
         </div>
       )
     })

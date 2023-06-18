@@ -16,7 +16,7 @@
  width: 10rem;
  height: 23rem;
  cursor: pointer;
- background-color: #e0dfdf;
+ background-color: #f2efef;
  transition: .2s;
 }
 
@@ -34,12 +34,18 @@
 
 .anime_desc_container {
  padding: .4rem;
+ text-align: center;
 }
 
-.green_class {
- background-color: green;
+.anime_score {
+ border-radius: .5rem;
+ text-align: center;
+ padding: .3rem;
+ font-weight: 700;
+ color: #282727;
 }
 
-.yellow_class {
- background-color: yellow;
+.anime_desc {
+ line-height: 1.1rem;
+ font-size: .9rem;
 }
