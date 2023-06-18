@@ -8,6 +8,7 @@ const Content = ({ animeData }) => {
       const imgUrl = anime?.images?.jpg?.image_url;
       const determineBgColor = () => (anime?.score > 7) ? '#31c050' : '#f5b70e';
       const nullScore = () => anime?.score === null ? 'No score' : anime?.score;
+      const checkIfNullName = () => anime?.title_english === null ? 'Name not found' : anime?.title_english;
 
       return (
         <div
@@ -16,7 +17,7 @@ const Content = ({ animeData }) => {
         >
           <img src={imgUrl} alt='animeImage' className={classes.anime_img} />
           <div className={classes.anime_desc_container}>
-            <div className={classes.anime_desc}>{`Name: ${anime?.title_english}`}</div>
+            <div className={classes.anime_name}>{`Name: ${checkIfNullName()}`}</div>
           </div>
           <div className={classes.anime_score} style={{ background: determineBgColor() }}>{`Score: ${nullScore()}`}</div>
         </div>

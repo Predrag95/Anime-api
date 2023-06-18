@@ -17,16 +17,20 @@ const SearchBar = ({ setGetSearchAnimes }) => {
   e.preventDefault();
 
   const getApi = async () => {
-   try {
-    const response = await axios.get(`https://api.jikan.moe/v4/anime?q=${searchedAnime}`);
-    const limitResponseData = 10;
-    const slicedData = response.data.data.slice(0, limitResponseData);
-    setGetSearchAnimes(slicedData);
-    setSearchedAnime('');
-    inputRef.current.value = '';
-    
-   } catch (error) {
-    console.error(error);
+   if (searchedAnime.length > 0) {
+    try {
+     const response = await axios.get(`https://api.jikan.moe/v4/anime?q=${searchedAnime}`);
+     const limitResponseData = 10;
+     const slicedData = response.data.data.slice(0, limitResponseData);
+     setGetSearchAnimes(slicedData);
+     setSearchedAnime('');
+     inputRef.current.value = '';
+
+    } catch (error) {
+     console.error(error);
+    }
+   } else {
+    setSearchedAnime('')
    }
   };
 

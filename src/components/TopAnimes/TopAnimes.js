@@ -3,7 +3,6 @@ import { Modal, Box, Typography } from '@mui/material';
 import axios from 'axios';
 
 import { modalStyle } from '../../matirialSxStyles';
-import techLines from '../../imgs/techLines.png'
 import classes from './TopAnimes.module.css';
 
 const TopAnimes = () => {
@@ -12,6 +11,7 @@ const TopAnimes = () => {
   const [open, setOpen] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [currentTopAnime, setCurrentTopAnime] = useState({});
+  console.log(topAnimeData)
 
   useEffect(() => {
     getApi();
@@ -35,7 +35,7 @@ const TopAnimes = () => {
 
     const name = divsArr[0].innerHTML;
     const year = divsArr[1].innerHTML;
-    const rank = divsArr[2].innerHTML;
+    const episodes = divsArr[2].innerHTML;
     const image = divsArr[3].childNodes[0].src;
     const synopsis = divsArr[4].innerHTML;
     const status = divsArr[5].innerHTML;
@@ -43,7 +43,7 @@ const TopAnimes = () => {
     const topAnimeObject = {
       name,
       year,
-      rank,
+      episodes,
       image,
       synopsis,
       status
@@ -65,11 +65,10 @@ const TopAnimes = () => {
         >
           <div className={classes.anime_title}>{`Name: ${anime?.title}`}</div>
           <div className={classes.anime_year}>{`Year: ${animeYear(anime?.year)}`}</div>
-          <div className={classes.anime_rank}>{`Rank: ${anime?.rank}`}</div>
+          <div>{`Episodes: ${anime?.episodes}`}</div>
           <div className={classes.image_not_displayed}>{animeImage}</div>
           <div className={classes.anime_synopsis}>{anime?.synopsis}</div>
           <div className={classes.anime_status}>{anime?.status}</div>
-          <img className={classes.tech_lines} src={techLines} alt='techLines' />
         </div>
       )
     })
@@ -101,16 +100,21 @@ const TopAnimes = () => {
           </Typography>
 
           <Typography id='modal-modal-description' className='mt-2'>
-            {`${currentTopAnime.year} - ${currentTopAnime.rank}`}
+            {currentTopAnime.year}
           </Typography>
 
-          <img src={currentTopAnime.image} alt='animeCover' />
-          <Typography id='modal-modal-title' variant='h6' component='h2'>
-            {currentTopAnime.synopsis}
-          </Typography>
-          <Typography id='modal-modal-title' variant='h6' component='h2'>
-            {currentTopAnime.status}
-          </Typography>
+          <div className={classes.modal_img_synopsis_container}>
+            <img src={currentTopAnime.image} alt='animeCover' className={classes.modal_image} />
+            <Typography id='modal-modal-title' variant='h6' component='h2'>
+              <div className={classes.modal_synopsis}>{currentTopAnime.synopsis}</div>
+            </Typography>
+          </div>
+
+          <div className={classes.modal_status}>
+            <Typography id='modal-modal-title' variant='h6' component='h2'>
+              {currentTopAnime.status}
+            </Typography>
+          </div>
         </Box>
       </Modal>
       {

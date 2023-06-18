@@ -35,8 +35,10 @@
 }
 
 .search_button {
- padding: .3rem;
+ padding: .3rem .6rem;
  border-radius: .8rem;
  border: none;
  margin-left: .5rem;
+ color: #282727;
+ background-color: #f2efef;
 }

@@ -4,16 +4,17 @@
 }
 
 .anime_container {
- border: .1rem solid #acacac;
+ border: none;
  border-radius: .6rem;
  padding: .3rem;
  margin-top: .6rem;
  min-height: 6rem;
  cursor: pointer;
  transition: .2s;
- background-color: rgb(25, 25, 25);
+ background-color: #191919;
  color: #c7c7c7;
  overflow: hidden;
+ line-height: 1.2rem;
 }
 
 .anime_container:hover {
@@ -29,15 +30,13 @@
 
 @keyframes animeBackground {
  0% {
-  background-color: rgb(25, 25, 25);
+  background-color: #191919;
   color: #c7c7c7;
  }
 
  100% {
   background-color: #c7c7c7;
-  color: rgb(25, 25, 25);
-  font-weight: 700;
-  border: .1rem solid rgb(25, 25, 25);
+  color: #191919;
  }
 }
 
@@ -55,7 +54,7 @@
 .top_anime_button {
  padding: .5rem;
  border-radius: .7rem;
- border: .1rem solid #acacac;
+ border: none;
  background-color: #cc0509;
  color: #f3eeee;
  font-size: 1rem;
@@ -80,15 +79,22 @@
  display: none;
 }
 
-.tech_lines {
- position: absolute;
- top: 0;
- right: 0;
- width: 6.2rem;
- height: 6.2rem;
- transform: rotate(180deg);
- display: none;
- z-index: -1;
- transition: 1s;
- opacity: .7;
+.modal_img_synopsis_container {
+ display: flex;
+ padding-top: 1rem;
+}
+
+.modal_image {
+ height: 17rem;
+}
+
+.modal_synopsis {
+ line-height: 1.5rem;
+ padding-left: 2rem;
+ font-size: 1rem;
+}
+
+.modal_status {
+ padding-top: .7rem;
+ text-align: right;
 }
